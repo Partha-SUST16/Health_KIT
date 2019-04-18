@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/drawerLayoutId"
+    tools:context=".PatientSignup">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fbfdfd"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="50dp"
+            android:paddingBottom="50dp"
+            android:weightSum="10"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="40dp"
+                android:text="Sign Up"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                />
+            <ImageView
+                android:id="@+id/patientProfilePicSelectionid"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_account_circle_coloured_24dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Click on the icon"/>
+
+            <EditText
+                android:id="@+id/patientEditNameId"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:hint="  Name"
+                android:drawableLeft="@drawable/ic_account_circle_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+
+                />
+            <EditText
+                android:id="@+id/parientEditGenderId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Gender"
+                android:drawableLeft="@drawable/ic_lock_outline_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patientEditAgeId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Age"
+                android:drawableLeft="@drawable/ic_lock_outline_coloured_24dp"
+                android:inputType="numberDecimal"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patientEditBloodId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Blood Group"
+                android:drawableLeft="@drawable/ic_lock_outline_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patienteditAreaId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Area"
+                android:drawableLeft="@drawable/ic_location_city_black_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patientEditphoneId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Phone Number"
+                android:drawableLeft="@drawable/ic_phone_coloured_24dp"
+                android:inputType="phone"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patientEditEmailId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Email"
+                android:drawableLeft="@drawable/ic_email_coloured_24dp"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <EditText
+                android:id="@+id/patientEditPasswordId"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:hint="  Password"
+                android:drawableLeft="@drawable/ic_lock_outline_coloured_24dp"
+                android:inputType="textPassword"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <Button
+                android:id="@+id/patientSignUpBtnId"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/button_background"
+                android:text="Sign Up"
+                android:textColor="#ffffff"
+                />
+
+            <Button
+                android:id="@+id/gotoLoginBtnId"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorPrimary"
+                android:background="@null"
+                android:text="Already has an account?"
+                android:textAllCaps="false"
+
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/NavigationViewId"
+
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/nevigation_menu"
+        android:background="@color/colorPrimary"
+        >
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

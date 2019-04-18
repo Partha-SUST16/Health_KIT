@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/drawerLayoutId"
+    tools:context=".UserCatagory">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your category"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorPrimary"/>
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/man"
+
+
+            />
+
+        <Button
+            android:id="@+id/patientBtnId"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_background"
+            android:layout_gravity="center"
+            android:text="Patient"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff"
+
+            />
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/doctor_profile_pic"
+
+
+            />
+        <Button
+            android:id="@+id/doctorBtnId"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_background"
+            android:layout_gravity="center"
+            android:text="Doctor"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff"
+            />
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/NavigationViewId"
+
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/nevigation_menu"
+        android:background="@color/colorPrimary"
+        >
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

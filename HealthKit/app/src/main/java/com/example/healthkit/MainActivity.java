@@ -45,36 +45,36 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 if(id==R.id.menuBMIbtnId)
                 {
-                    //Toast.makeText(MainActivity.this,"BMI CLICKED",Toast.LENGTH_SHORT).show();
-                  /*  Intent intent1 = new Intent(getApplicationContext(),BmiCalculator.class);
-                    startActivity(intent1);*/
+                    Toast.makeText(MainActivity.this,"BMI CLICKED",Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(getApplicationContext(),BmiCalculator.class);
+                    startActivity(intent1);
                 }
                 else if(id==R.id.menuDiabetesbtnId)
                 {
-                    //Toast.makeText(MainActivity.this,"Diabetes CLICKED",Toast.LENGTH_SHORT).show();
-                  /*  Intent intent2 = new Intent(getApplicationContext(),DiabetesCalculator.class);
-                    startActivity(intent2);*/
+                    Toast.makeText(MainActivity.this,"Diabetes CLICKED",Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(getApplicationContext(),DiabetesCalculator.class);
+                    startActivity(intent2);
                 }
                 else if(id==R.id.menuLoginbtnId)
                 {
-                    //Toast.makeText(MainActivity.this,"login CLICKED",Toast.LENGTH_SHORT).show();
-                   /* Intent intent3 = new Intent(getApplicationContext(),UserCatagory.class);
-                    startActivity(intent3);*/
+                    Toast.makeText(MainActivity.this,"login CLICKED",Toast.LENGTH_SHORT).show();
+                    Intent intent3 = new Intent(getApplicationContext(),UserCatagory.class);
+                    startActivity(intent3);
                 }
                 else if(id==R.id.menuAboutusbtnId)
                 {
-                    //Toast.makeText(MainActivity.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),AboutUs.class);
                     startActivity(intent);
                 }
                 else if(id==R.id.menuExitbtnId)
                 {
-                    //Toast.makeText(MainActivity.this,"Exit CLICKED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Exit CLICKED",Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
-                    //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
                    // startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             emergencyBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
                    // startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
