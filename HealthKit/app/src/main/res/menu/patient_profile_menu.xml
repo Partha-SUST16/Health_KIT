@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/menuEmergencybtnId"
+    android:title="Emergency"
+    android:icon="@drawable/ic_place_black">
+
+</item>
+    <item
+        android:id="@+id/recentButtonId"
+        android:title="Recent Doctors"
+        android:icon="@drawable/ic_recent_black">
+
+    </item>
+
+    <item
+        android:id="@+id/menuPrescriptionbtnId"
+        android:title="My Prescriptions"
+        android:icon="@drawable/ic_prescription_black">
+
+    </item>
+
+    <item
+        android:id="@+id/menuSearchbtnId"
+        android:title="Search Doctor"
+        android:icon="@drawable/ic_search_black">
+    </item>
+    <item
+        android:id="@+id/menuBMIbtnId"
+        android:title="BMI Calculator"
+        android:icon="@drawable/ic_smartphone_black_24dp">
+
+    </item>
+    <item
+        android:id="@+id/menuDiabetesbtnId"
+        android:title="Diabetes Calculator"
+        android:icon="@drawable/ic_smartphone_black_24dp">
+    </item>
+
+    <item
+        android:id="@+id/menuAboutustnId"
+        android:title="About Us"
+        android:icon="@drawable/ic_info_black_24dp">
+
+    </item>
+    <item
+        android:id="@+id/menuLogoutbtnId"
+        android:title="Log Out"
+        android:icon="@drawable/ic_exit_to_app_black_24dp">
+
+    </item>
+</menu>

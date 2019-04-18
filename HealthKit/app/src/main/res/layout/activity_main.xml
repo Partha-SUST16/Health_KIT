@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/drawerLayoutId">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e0e0e0"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tips No: 1"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:background="#b0b0b0"
+                    android:textColor="#000000"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:src="@drawable/tips1"
+                    />
+                <TextView
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ডাস্ট অ্যালার্জি থেকে দূরে থাকার তিন উপায়"
+                    android:textSize="25sp"
+                    android:textColor="#000000"
+                    android:background="#b0b0b0"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tips1_str"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:background="#e0e0e0"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tips No: 2"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:background="#b0b0b0"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:src="@drawable/tips2"
+                    />
+                <TextView
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="বৈশাখে শিশুর সুস্থতায় পাঁচ পরামর্শ"
+                    android:textSize="25sp"
+                    android:textColor="#000000"
+                    android:background="#b0b0b0"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tips2_str"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:background="@drawable/button_background"
+                android:id="@+id/EmergencyBtnId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emergency"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/NavigationViewId"
+
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/nevigation_menu"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        >
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

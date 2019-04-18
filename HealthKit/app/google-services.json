@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "703690638907",
+    "firebase_url": "https://healthkit-ea5b8.firebaseio.com",
+    "project_id": "healthkit-ea5b8",
+    "storage_bucket": "healthkit-ea5b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703690638907:android:b1f4fd598bdd8cec",
+        "android_client_info": {
+          "package_name": "com.example.healthkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703690638907-3o9vchq4co7lm3cc2cj1qials17ti36l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthkit",
+            "certificate_hash": "284fb878540b5a3a6876f46855a75b56222217fc"
+          }
+        },
+        {
+          "client_id": "703690638907-qsbt4s16bl5e1lhfss79pvtl7gb2ucoe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmt25ZC2n3h-L6NkDEh9_L4Dig8YS7irc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703690638907-qsbt4s16bl5e1lhfss79pvtl7gb2ucoe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
