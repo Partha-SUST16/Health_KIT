@@ -3,6 +3,7 @@ package com.example.healthkit;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -74,7 +75,7 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                   // startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
+                    startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
                 {
@@ -94,21 +95,20 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                 }
                 else if(id==R.id.menuLogoutbtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                    finish();
-                    patientAuth.signOut();
+                    SharedPrefManager.getInstance(getApplicationContext()).logout();
+                    startActivity(new Intent(getApplicationContext(),PatientProfile.class));
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;
@@ -172,4 +172,21 @@ public class DoctorScheduleCheck extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return actionBarDrawerToggle.onOptionsItemSelected(item) ||super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            // startActivity(new Intent(getApplicationContext(),SearchDoctor.class));
+            super.onBackPressed();
+        }
+    }
 }

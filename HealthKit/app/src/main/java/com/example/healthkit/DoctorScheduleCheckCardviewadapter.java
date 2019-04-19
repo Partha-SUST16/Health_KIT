@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<DoctorScheduleCheckCardviewadapter.DoctorScheduleCheckCardviewHolder>{
@@ -33,7 +36,7 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
     private FirebaseAuth patientAuth;
     private FirebaseAuth.AuthStateListener patientAuthListener;
     private String patientID;
-    private DatabaseReference paID;
+    private DatabaseReference paID,Notifications;
     String Day;
     String doctorUID ;
     //we are storing all the products in a list
@@ -66,7 +69,7 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
 
         Log.d(TAG, "Availability: "+product.available);
 
-
+        Notifications = FirebaseDatabase.getInstance().getReference().child("Notifications");
         holder.patientNo.setText("Parient No: "+product.patientNo);
         holder.placeId.setText(product.place);
         holder.startId.setText("Start: "+product.start);
@@ -112,7 +115,6 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
             @Override
             public void onClick(View v) {
 
-                patientAuth = FirebaseAuth.getInstance();
                 String CurrentUser = SharedPrefManager.getInstance(mCtx).getUserEmail();
                 CurrentUser=CurrentUser.substring(0,CurrentUser.lastIndexOf('@'));
 
@@ -185,12 +187,31 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
                                         doctorReference.child("schedule").child(Day).child("patientno"+product.patientNo).child("available").setValue("false");
 
                                         doctorReference = FirebaseDatabase.getInstance().getReference().child("Doctors").child(doctorUID);
-                                        doctorReference.child("schedule").child(Day).child("patientno"+product.patientNo).child("request").setValue("pending");
+                                        doctorReference.child("schedule").child(Day).child("patientno"+product.patientNo).child("request").setValue("pending")
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+                                                    HashMap<String,String>chatnotification = new HashMap<>();
+                                                    String temp = product.patientEmail;
+                                                    Log.d("DEBUG",temp);
+                                                    chatnotification.put("from",SharedPrefManager.getInstance(mCtx).getUsername());
+                                                    chatnotification.put("type","request");
+                                                    Notifications.child(doctorUID).push().setValue(chatnotification)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if(task.isSuccessful()){
+                                                                holder.availavbeId.setText("Pending");
+                                                                int color = Integer.parseInt("ffff00", 16)+0xFF000000;
+                                                                holder.availavbeId.setTextColor(color);
+                                                            }
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        });
 
-
-                                        holder.availavbeId.setText("Pending");
-                                        int color = Integer.parseInt("ffff00", 16)+0xFF000000;
-                                        holder.availavbeId.setTextColor(color);
 
                                        /* patientAuth = FirebaseAuth.getInstance();
                                         String CurrentUser = patientAuth.getCurrentUser().getUid();*/

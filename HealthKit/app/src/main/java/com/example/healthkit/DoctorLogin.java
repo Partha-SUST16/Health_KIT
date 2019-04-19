@@ -90,7 +90,7 @@ public class DoctorLogin extends AppCompatActivity {
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                   // startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                   startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }

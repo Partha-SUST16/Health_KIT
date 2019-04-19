@@ -16,12 +16,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private Button emergencyBtn;
-
+    private Button emergencyBtn,SOSbtn;
+    private GpsTracker gpsTracker;
+    private double lati, longi;
     private static final String TAG = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST = 1;
 
@@ -80,7 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        SOSbtn = findViewById(R.id.SOSbtnID);
 
+        SOSbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLocation(v);
+                sendSOS();
+            }
+        });
 
         if(isServiceOk())
         {
@@ -96,7 +106,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    private void sendSOS(){
+        Toast.makeText(getApplicationContext(),"HELP REQUEST HAVE BEEN SENT",Toast.LENGTH_LONG).show();
+        FirebaseDatabase.getInstance().getReference().child("needHelp").setValue("true");
+        FirebaseDatabase.getInstance().getReference().child("lati").setValue(Double.toString(lati));
+        FirebaseDatabase.getInstance().getReference().child("longi").setValue(Double.toString(longi));
+    }
 
+    public void getLocation(View view){
+        gpsTracker = new GpsTracker(getApplicationContext());
+        if(gpsTracker.canGetLocation()){
+            lati = gpsTracker.getLatitude();
+            longi= gpsTracker.getLongitude();
+
+        }else{
+            gpsTracker.showSettingsAlert();
+        }
+    }
 
     public boolean isServiceOk(){
         Log.d(TAG, "isServiceOk: Checking Google Service Version");

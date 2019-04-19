@@ -13,6 +13,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -70,7 +74,7 @@ public class DoctorProfile extends AppCompatActivity {
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }
@@ -86,6 +90,9 @@ public class DoctorProfile extends AppCompatActivity {
         doctorworkplace = (TextView) findViewById(R.id.doctorWorkplace);
         doctordegree = (TextView) findViewById(R.id.doctorDegree);
         ini();
+        String token= FirebaseInstanceId.getInstance().getToken();
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Doctors");
+        ref.child(doctorname.getText().toString()).child("device_token").setValue(token);
     }
     private void ini(){
         try {

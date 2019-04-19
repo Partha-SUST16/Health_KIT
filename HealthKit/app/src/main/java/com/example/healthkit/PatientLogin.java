@@ -88,7 +88,7 @@ public class PatientLogin extends AppCompatActivity {
                 else if(id==R.id.menuEmergencybtnId)
                 {
                     //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }

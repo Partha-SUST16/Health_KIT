@@ -208,8 +208,8 @@ public class MyPrescription extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
-            //super.onBackPressed();
+            //startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
+            super.onBackPressed();
         }
     }
 }

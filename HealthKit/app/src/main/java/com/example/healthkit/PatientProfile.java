@@ -13,6 +13,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -96,6 +100,10 @@ public class PatientProfile extends AppCompatActivity {
         patientphone = (TextView) findViewById(R.id.patientPhone);
         patientemail = (TextView) findViewById(R.id.patientEmail);
         ini();
+        String token= FirebaseInstanceId.getInstance().getToken();
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Patients");
+        ref.child(patientname.getText().toString()).child("device_token").setValue(token);
+        Log.d("TOKEN",token);
     }
     private void ini(){
         try {

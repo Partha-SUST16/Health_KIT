@@ -62,7 +62,7 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
-                    //startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
+                    startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
                 {
@@ -83,20 +83,21 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
                 else if(id==R.id.menuLogoutbtnId)
                 {
                     Toast.makeText(getApplicationContext(),"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                   // finish();
+                   SharedPrefManager.getInstance(getApplicationContext()).logout();
+                   startActivity(new Intent(getApplicationContext(),DoctorLogin.class));
 
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                   // startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
                     // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;

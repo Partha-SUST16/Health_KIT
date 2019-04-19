@@ -133,8 +133,8 @@ public class RecentDoctors extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),PatientProfile.class));
-            //super.onBackPressed();
+            //startActivity(new Intent(getApplicationContext(),PatientProfile.class));
+            super.onBackPressed();
         }
     }
     private void ini(){

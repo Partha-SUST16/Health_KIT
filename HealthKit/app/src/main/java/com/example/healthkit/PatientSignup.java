@@ -21,6 +21,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -102,7 +104,11 @@ public class PatientSignup extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String deviceToken = FirebaseInstanceId.getInstance().getToken();
+                FirebaseDatabase.getInstance().getReference().child(namevalue.getText().toString())
+                        .child("device_token").setValue(deviceToken);
                 registerPatient();
+
             }
         });
         gotoLogin.setOnClickListener(new View.OnClickListener() {

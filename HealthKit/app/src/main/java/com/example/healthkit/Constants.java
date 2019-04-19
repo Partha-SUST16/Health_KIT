@@ -1,7 +1,7 @@
 package com.example.healthkit;
 
 public class Constants {
-    private static final String ROOT_URL = "http://10.100.173.249/Android/v1/";
+    private static final String ROOT_URL = "http://10.101.1.21/Android/v1/";
     public static final String URL_PATIENTS_REGISTER = ROOT_URL+"registerUser.php";
     public static final String URL_DOCTORS_REGISTER = ROOT_URL+"registerDoctor.php";
     //public static final String URL_PATIENTS_REGISTER = ROOT_URL+"re"

@@ -18,7 +18,7 @@ public class UserCatagory extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
-    private Button patientBtn,doctorBtn;
+    private Button patientBtn,doctorBtn,medicalBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +61,7 @@ public class UserCatagory extends AppCompatActivity {
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }
@@ -73,6 +73,7 @@ public class UserCatagory extends AppCompatActivity {
 
         patientBtn = (Button) findViewById(R.id.patientBtnId);
         doctorBtn = (Button) findViewById(R.id.doctorBtnId);
+        medicalBtn = findViewById(R.id.medicalAuth);
 
         patientBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +85,12 @@ public class UserCatagory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),DoctorLogin.class));
+            }
+        });
+        medicalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MedicalLogin.class));
             }
         });
 

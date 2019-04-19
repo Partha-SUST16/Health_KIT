@@ -61,20 +61,19 @@ public class DoctorScheduleDaySelection extends AppCompatActivity {
                 }
                 else if(id==R.id.menuLogoutbtnId)
                 {
-                    Toast.makeText(DoctorScheduleDaySelection.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                    finish();
-                    doctorAuth.signOut();
+                    SharedPrefManager.getInstance(getApplicationContext()).logout();
+                    startActivity(new Intent(getApplicationContext(),DoctorLogin.class));
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                   // startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.chatDoctor)
                 {
                     // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
+                    startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
                 }
                 return true;
             }
@@ -210,8 +209,8 @@ public class DoctorScheduleDaySelection extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),DoctorProfile.class));
-            //super.onBackPressed();
+           // startActivity(new Intent(getApplicationContext(),DoctorProfile.class));
+            super.onBackPressed();
         }
     }
 }

@@ -68,7 +68,7 @@ public class DoctorbyHospital extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
-                    // startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
+                     startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
                 {
@@ -89,7 +89,12 @@ public class DoctorbyHospital extends AppCompatActivity {
                 else if(id==R.id.menuLogoutbtnId)
                 {
                     Toast.makeText(DoctorbyHospital.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                    finish();
+                    try{
+                        SharedPrefManager.getInstance(getApplicationContext()).logout();
+                        startActivity(new Intent(getApplicationContext(),UserCatagory.class));
+                    }catch (Exception e){
+
+                    }
 
                 }
                 else if(id == R.id.menuEmergencybtnId)

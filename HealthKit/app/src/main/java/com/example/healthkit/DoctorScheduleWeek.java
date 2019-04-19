@@ -59,7 +59,7 @@ public class DoctorScheduleWeek extends AppCompatActivity {
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                   // startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
+                    startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
                 {
@@ -87,13 +87,13 @@ public class DoctorScheduleWeek extends AppCompatActivity {
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
                     //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
-                    //startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;

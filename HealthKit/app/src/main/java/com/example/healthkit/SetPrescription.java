@@ -3,6 +3,7 @@ package com.example.healthkit;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -90,7 +91,8 @@ public class SetPrescription extends AppCompatActivity implements SetPrescriptio
                 else if(id==R.id.menuLogoutbtnId)
                 {
                     Toast.makeText(SetPrescription.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                    //doctorAuth.signOut();
+                    SharedPrefManager.getInstance(getApplicationContext()).logout();
+                    startActivity(new Intent(getApplicationContext(),UserCatagory.class));
                 }
                 return true;
             }
@@ -172,6 +174,22 @@ public class SetPrescription extends AppCompatActivity implements SetPrescriptio
         medicineList.clear();
         patientReference = FirebaseDatabase.getInstance().getReference().child("Patients").child(patientUID).child("MyPrescription").child(prescriptionNumber);
         patientReference.addListenerForSingleValueEvent(valueEventListener);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return actionBarDrawerToggle.onOptionsItemSelected(item) ||super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else{
+            // startActivity(new Intent(getApplicationContext(),SearchDoctor.class));
+            super.onBackPressed();
+        }
     }
     private void loadDoctorInfo(){
         final String doctor_email = SharedPrefManager.getInstance(getApplicationContext()).getUserEmail();
