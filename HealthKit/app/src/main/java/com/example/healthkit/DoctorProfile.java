@@ -46,8 +46,8 @@ public class DoctorProfile extends AppCompatActivity {
                 if(id==R.id.menuReservationScheduleId)
                 {
                     Toast.makeText(DoctorProfile.this,"Schedule Clicked",Toast.LENGTH_SHORT).show();
-                  //  Intent intent2 = new Intent(getApplicationContext(),DoctorScheduleDaySelection.class);
-                  //  startActivity(intent2);
+                   Intent intent2 = new Intent(getApplicationContext(),DoctorScheduleDaySelection.class);
+                    startActivity(intent2);
                 }
                 else if(id==R.id.menuAboutustnId)
                 {
@@ -65,7 +65,7 @@ public class DoctorProfile extends AppCompatActivity {
                 else if(id == R.id.chatDoctor)
                 {
                     //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
+                    startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {

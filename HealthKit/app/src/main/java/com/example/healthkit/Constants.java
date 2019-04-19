@@ -13,8 +13,12 @@ public class Constants {
     public static final String URL_GET_DOCTOR_by_CATAGORY = ROOT_URL+"getDoctorbyCatagory.php";
     public static final String URL_GET_DOCTOR_FILTER = ROOT_URL+"getDoctorbyAreaCatagory.php";
     public static final String URL_GET_RECENT_DOCTOR = ROOT_URL+"getRecentDoctors.php";
+    public static final String URL_SET_TO_APPOINTMENT = ROOT_URL+"addToRecents.php";
     public static final String URL_GET_DOCTOR_by_EMAIL = ROOT_URL+"getDoctorbyEmail.php";
     public static final String URL_SET_APPOINTMENT_DOCTOR=ROOT_URL+"addAppointmentField.php";
     public static final String URL_DELETE_APPOINTMENT = ROOT_URL+"deleteAppointment.php";
     public static final String URL_GET_ALL_APPOINTMENT = ROOT_URL+"getAllAppointment.php";
+    public static final String URL_GET_by_NAME = ROOT_URL+"getDoctorbyName.php";
+    public static final String URL_GET_by_HOSPITAL = ROOT_URL+"getDoctorbyHospital.php";
+    public static final String URL_GET_AMBULENCE = ROOT_URL+"getAmbulenceNumber.php";
 }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/MedicineNoId"
+                    android:layout_width="120dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine No"
+                    android:background="@drawable/button_background2"
+                    android:gravity="center_horizontal"
+                    />
+
+                <EditText
+                    android:id="@+id/MedicineNameId"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine Name"
+                    android:layout_below="@id/MedicineNoId"
+                    android:background="@drawable/button_background2"
+                    android:gravity="center_horizontal"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/timesAday"
+                    android:layout_below="@+id/MedicineNameId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dosage (Per Day)"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/MedicineTimeId"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/timesAday"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/MedicineInMorningId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/MedicineNameId"
+                        android:hint="Morning"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/MedicineInNoonId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/MedicineNameId"
+                        android:hint="Noon"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/MedicineInNightId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/MedicineNameId"
+                        android:hint="Night"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/beforeAfter"
+                    android:layout_below="@+id/MedicineTimeId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="State of Stomach"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    />
+                <LinearLayout
+                    android:id="@+id/MedicineMealId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/beforeAfter"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/medicineBeforeMealId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/MedicineNameId"
+                        android:hint="Before Meal"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/MedicineAfterMealId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/MedicineNameId"
+                        android:hint="After Meal"
+                        android:layout_marginRight="10dp"/>
+
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/MedicineDurationId"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine Duration"
+                    android:layout_below="@id/MedicineMealId"
+                    android:background="@drawable/button_background2"
+                    android:gravity="center_horizontal"
+                    />
+                <EditText
+                    android:id="@+id/MedicineSuggestionId"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Suggestion"
+                    android:layout_below="@id/MedicineDurationId"
+                    android:background="@drawable/button_background2"
+                    android:gravity="center_horizontal"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/medicineCardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/colorLight"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:id="@+id/linearLayout"
+                >
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:id="@+id/medicineNoId"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine No"
+
+                    />
+
+                <TextView
+                    android:id="@+id/medicineNameId"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine Name"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:textColor="#000000"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/medicineTimeId"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/medicineInMorningId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Morning"
+                        android:layout_marginRight="10dp"
+                        android:clickable="false"
+                        />
+                    <RadioButton
+                        android:id="@+id/medicineInNoonId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Noon"
+                        android:clickable="false"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/medicineInNightId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="Night"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/medicineMealId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/medicineBeforeId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="Before Meal"
+                        android:layout_marginRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/medicineAfterId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:hint="After Meal"
+                        android:layout_marginRight="10dp"/>
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/medicineDurationId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Medicine Duration"
+                    android:gravity="center_horizontal"
+                    />
+                <TextView
+                    android:id="@+id/medicineSuggestionId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint ="Suggestion"
+                    android:gravity="center_horizontal"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

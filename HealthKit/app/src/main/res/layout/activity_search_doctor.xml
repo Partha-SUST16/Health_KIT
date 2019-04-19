@@ -1,9 +1,170 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchDoctor">
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:id="@+id/ppDrawerId"
+    tools:context=".SearchDoctor"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
 
-</android.support.constraint.ConstraintLayout>
+            >
+
+            <EditText
+                android:id="@+id/searchByCatagoryEdittextId"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:hint="  select Catagory"
+                android:drawableLeft="@drawable/ic_account_circle_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <Button
+                android:id="@+id/searchByCatagoryBtnId"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Search"
+                android:background="@drawable/button_background"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+
+            >
+
+            <EditText
+                android:id="@+id/searchByAreaEdittextId"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:hint="  select Area"
+                android:drawableLeft="@drawable/ic_account_circle_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <Button
+                android:id="@+id/searchByAreaBtnId"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Search"
+                android:background="@drawable/button_background"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+
+            >
+
+            <EditText
+                android:id="@+id/searchByNameEdittextId"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:hint="  select Name"
+                android:drawableLeft="@drawable/ic_account_circle_coloured_24dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:background="@drawable/button_background2"
+                />
+            <Button
+                android:id="@+id/searchByNameBtnId"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:text="Search"
+                android:background="@drawable/button_background"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            >
+            <Button
+                android:id="@+id/RefreshBtnId"
+                android:layout_marginLeft="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_background"
+                android:text="Refresh"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:textColor="#ffffff"
+                />
+
+            <Button
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/FilterBtnId"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_background"
+                android:text="Filter"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:textColor="#ffffff"/>
+
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/ppNavigationViewId"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/patient_profile_menu"
+        android:background="@color/colorPrimary"
+        >
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

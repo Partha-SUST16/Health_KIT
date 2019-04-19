@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/pop_up_background"
+    android:padding="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient Info"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/patientNoid"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient No:"
+            />
+
+        <TextView
+            android:id="@+id/patientNameid"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            />
+        <TextView
+            android:id="@+id/patientEmailid"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            />
+        <TextView
+            android:id="@+id/patientPhoneid"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone No:"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/approveReservationid"
+            android:layout_marginTop="30dp"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:text="Approve"
+            android:textAllCaps="false"
+            android:background="@drawable/button_background"
+            android:layout_alignParentLeft="true"
+            />
+
+        <Button
+            android:id="@+id/deleteReservationid"
+            android:layout_marginTop="30dp"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:text="Delete"
+            android:textAllCaps="false"
+            android:background="@drawable/button_background"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/setPrescriptionBtnId"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Request for Set Prescription"
+            android:background="@drawable/button_background"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

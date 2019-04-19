@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    >
+
+    <EditText
+        android:id="@+id/selectPatientNoId"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:hint="Patient No"
+        android:inputType="numberDecimal"
+        android:textSize="15sp"
+        android:background="@drawable/button_background2"
+        />
+
+    <EditText
+        android:id="@+id/SelectHospitalId"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:hint="Hospital Name"
+        android:inputType="text"
+        android:textSize="15sp"
+        android:background="@drawable/button_background2"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/SelectStarttimeId"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:hint="Starting Time"
+            android:inputType="time"
+            android:textSize="15sp"
+            android:background="@drawable/button_background2"
+            />
+        <EditText
+            android:id="@+id/SelectEndtimeId"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:hint="Ending Time"
+            android:inputType="time"
+            android:textSize="15sp"
+            android:background="@drawable/button_background2"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

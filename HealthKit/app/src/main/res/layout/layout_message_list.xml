@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raihan"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="#bc350bf1"
+        android:textStyle="bold"
+        android:id="@+id/chatName"
+        />
+
+    <ImageView
+        android:id="@+id/chatImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/chatName"
+        android:src="@drawable/profilelogo240_240"
+        />
+
+    <TextView
+        android:id="@+id/leftText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:background="@drawable/left_background"
+        android:text="Hey There"
+        />
+
+    <TextView
+        android:id="@+id/rightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/right_background"
+        android:text="Hi fellow"
+        android:padding="8dp"
+        android:elevation="2dp"
+        android:textSize="20dp"
+
+        />
+
+
+</RelativeLayout>

@@ -10,24 +10,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class PatientProfile extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyPrescriptionList extends AppCompatActivity {
+
+    List<String> presList=new ArrayList<>();
+    private ListView mList;
+
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private TextView patientname,patientage,patientarea,patientblood,patientemail,patientgender,patientphone;
+
+    private FirebaseAuth patientAuth;
+    private FirebaseAuth.AuthStateListener patientAuthListener;
+    private DatabaseReference patientReference;
+    private String pMax;
+    private int MAX;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_patient_profile);
+        setContentView(R.layout.activity_my_prescription_list);
         drawerLayout = (DrawerLayout) findViewById(R.id.ppDrawerId);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.Open,R.string.Close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+
+        mList = findViewById(R.id.listview);
+
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -47,7 +69,7 @@ public class PatientProfile extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
 
                     startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
@@ -70,53 +92,80 @@ public class PatientProfile extends AppCompatActivity {
                 else if(id==R.id.menuLogoutbtnId)
                 {
                     Toast.makeText(getApplicationContext(),"Log Out Clicked",Toast.LENGTH_SHORT).show();
-                    //finish();
-                    //patientAuth.signOut();
-                    SharedPrefManager.getInstance(getApplicationContext()).logout();
-                    startActivity(new Intent(getApplicationContext(),PatientLogin.class));
+                    finish();
+                    patientAuth.signOut();
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                    Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
-                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                    Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
+                    //startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;
             }
         });
-        patientname = (TextView) findViewById(R.id.patientName);
-        patientage = (TextView) findViewById(R.id.patientAge);
-        patientgender = (TextView) findViewById(R.id.patientGender);
-        patientarea = (TextView) findViewById(R.id.patientArea);
-        patientblood = (TextView) findViewById(R.id.patientBlood);
-        patientphone = (TextView) findViewById(R.id.patientPhone);
-        patientemail = (TextView) findViewById(R.id.patientEmail);
-        ini();
-    }
-    private void ini(){
-        try {
-            JSONObject obj = new JSONObject(getIntent().getStringExtra("information"));
-            patientname.setText(obj.getString("patient_name"));
-            patientage.setText(obj.getString("patient_age"));
-            patientblood.setText(obj.getString("patient_blood"));
-            patientgender.setText(obj.getString("patient_gender"));
-            patientarea.setText(obj.getString("patient_area"));
-            patientphone.setText(obj.getString("patient_phone_no"));
-            patientemail.setText(obj.getString("patient_email"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d("Error check",e.getMessage());
+        final ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,presList);
+        String CurrentUser = SharedPrefManager.getInstance(getApplicationContext()).getUserEmail();
+        CurrentUser = CurrentUser.substring(0,CurrentUser.lastIndexOf('@'));
+        patientReference = FirebaseDatabase.getInstance().getReference().child("Patients").child(CurrentUser);
+        patientReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try {
+                    pMax = dataSnapshot.child("prescriptionNumber").getValue(String.class);
+                    Log.d("My Prescription ",pMax);
+                }catch (Exception e){if(pMax==null){
+                    pMax="0";
+                    patientReference.child("prescriptionNumber").setValue("0");
+                }}
 
-        }
+
+                MAX=Integer.parseInt(pMax);
+                for(int i=0;i<MAX;i++)
+                {
+                    String idx = Integer.toString(i);
+                    presList.add(idx);
+                    arrayAdapter.notifyDataSetChanged();
+                    Log.d("My Prescription ",presList.get(i));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        Log.d("BAAAAAAL",CurrentUser);
+
+        mList.setAdapter(arrayAdapter);
+        Log.d("BAAAAAAL123",CurrentUser);
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String tempo = String.valueOf(position);
+
+                Log.d("MyPrescriptionList", "onItemClickP: "+position);
+                Intent intent = new Intent(getApplicationContext(),MyPrescription.class);
+                intent.putExtra("clickedOn",tempo);
+                startActivity(intent);
+            }
+        });
+
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return actionBarDrawerToggle.onOptionsItemSelected(item) ||super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -124,6 +173,7 @@ public class PatientProfile extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
+            startActivity(new Intent(getApplicationContext(),PatientProfile.class));
             //super.onBackPressed();
         }
     }
