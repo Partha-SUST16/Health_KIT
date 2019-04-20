@@ -2,6 +2,7 @@ package com.example.healthkit;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -142,10 +144,10 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
 
         patientList.clear();
         doctorReference = FirebaseDatabase.getInstance().getReference("Doctors").child(CurrentUser).child("schedule").child(dayNameText.getText().toString());
-        doctorReference.addListenerForSingleValueEvent(valueEventListener);
-
+        doctorReference.addValueEventListener(valueEventListener);
         //load();
     }
+
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -156,9 +158,9 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
                     patientList.add(patientlist);
                 }
                 adapter.notifyDataSetChanged();
+
             }
         }
-
         @Override
         public void onCancelled(DatabaseError databaseError) {
 

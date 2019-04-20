@@ -53,6 +53,7 @@ public class MedicalLogin extends AppCompatActivity {
                     i.putExtra("Lati",Double.toString(lati));
                     i.putExtra("Longi",Double.toString(longi));
                     startActivity(i);
+                   // Toast.makeText(getApplicationContext(),"Successfull",Toast.LENGTH_SHORT).show();
                 }
                 else Toast.makeText(getApplicationContext(),task.getException().getMessage().toString(),Toast.LENGTH_LONG).show();
             }

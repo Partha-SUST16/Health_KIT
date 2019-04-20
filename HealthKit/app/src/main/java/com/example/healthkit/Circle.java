@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -70,7 +72,16 @@ public class Circle extends AppCompatActivity implements OnMapReadyCallback, Ada
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // do something when check is selected
-                   FirebaseDatabase.getInstance().getReference().child("needHelp").setValue("false");
+                   /* FirebaseDatabase.getInstance().getReference().addValueEventListener(new ValueEventListener() {
+                        @Override public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String request = dataSnapshot.child("needHelp").getValue(String.class);
+                            Log.d("ERROR CHECK",request);
+                            if(request.equalsIgnoreCase("false"))
+                                Toast.makeText(getApplicationContext(),"ANOTHER HOSPITAL IS HELPING", Toast.LENGTH_LONG).show();
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) { } });*/
+                    FirebaseDatabase.getInstance().getReference().child("needHelp").setValue("false");
                 } else {
                     //do something when unchecked
 
@@ -111,11 +122,11 @@ public class Circle extends AppCompatActivity implements OnMapReadyCallback, Ada
                     if(snapshot.getKey().equalsIgnoreCase("needhelp")) {
                         needHelp = snapshot.getValue(String.class);
 
-                         Log.d("emni",needHelp);
+                        Log.d("emni",needHelp);
                     }
                     String t;
                     if(snapshot.getKey().equalsIgnoreCase("lati")) {
-                         t = snapshot.getValue(String.class);
+                        t = snapshot.getValue(String.class);
                         nl = Double.parseDouble(t);
                         Log.d("emni_", t);
                     }

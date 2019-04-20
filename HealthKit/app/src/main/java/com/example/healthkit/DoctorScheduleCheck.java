@@ -1,7 +1,9 @@
 package com.example.healthkit;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +43,7 @@ public class DoctorScheduleCheck extends AppCompatActivity {
     String doctorUID;
     public String Day;
 
+    Handler mHandler;
 
     private FirebaseAuth patientAuth;
 
@@ -54,6 +58,9 @@ public class DoctorScheduleCheck extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.dpDrawerId);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.Open,R.string.Close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+
+
+
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -114,6 +121,7 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                 return true;
             }
         });
+
         Bundle bundle = getIntent().getExtras();
         if(bundle==null)
         {
@@ -152,7 +160,8 @@ public class DoctorScheduleCheck extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         doctorReference = FirebaseDatabase.getInstance().getReference("Doctors").child(doctorUID).child("schedule").child(dayNameText.getText().toString());
-        doctorReference.addListenerForSingleValueEvent(valueEventListener);
+        doctorReference.addValueEventListener(valueEventListener);
+
     }
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -164,6 +173,7 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                     patientList.add(patientlist);
                 }
                 adapter.notifyDataSetChanged();
+
             }
         }
 
@@ -177,7 +187,18 @@ public class DoctorScheduleCheck extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return actionBarDrawerToggle.onOptionsItemSelected(item) ||super.onOptionsItemSelected(item);
     }
+    private final Runnable m_Runnable = new Runnable()
+    {
+        public void run()
 
+        {
+
+            DoctorScheduleCheck.this.mHandler.postDelayed(m_Runnable,5000);
+           // finish();
+          //  startActivity(getIntent());
+        }
+
+    };
 
     @Override
     public void onBackPressed() {

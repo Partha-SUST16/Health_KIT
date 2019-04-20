@@ -85,6 +85,7 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
             holder.availavbeId.setText("Pending");
             int color = Integer.parseInt("ffff00", 16)+0xFF000000;
             holder.availavbeId.setTextColor(color);
+
         }
         else if(product.patientEmail.toString().equals(CurrentEmail) && product.request.toString().equals("true"))
         {

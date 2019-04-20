@@ -354,8 +354,6 @@ public class DoctorScheduleEditCardviewadapter extends RecyclerView.Adapter<Doct
                     approveReservation.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
-                            //int color = Integer.parseInt("179303", 16)+0xFF000000;
                             approveReservation.setText("Approved");
                             //approveReservation.setTextColor(color);
 
@@ -412,9 +410,6 @@ public class DoctorScheduleEditCardviewadapter extends RecyclerView.Adapter<Doct
                     popUp.show();
                 }
 
-
-
-
             }
         });
 
@@ -443,8 +438,6 @@ public class DoctorScheduleEditCardviewadapter extends RecyclerView.Adapter<Doct
             availavbeId = (TextView) itemView.findViewById(R.id.availablityId);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
         }
-
-
 
     }
 }
