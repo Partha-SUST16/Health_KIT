@@ -93,10 +93,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
                     android:gravity="center"
-                    android:onClick="BmiCalculation"
                     android:text="Calculate"
                     android:background="@drawable/button_background"
                     android:textColor="#ffffff" />
+
                 <Button
                     android:id="@+id/resetBtn"
                     android:layout_width="wrap_content"
@@ -104,11 +104,36 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:onClick="resetMethod"
                     android:text="Reset"
                     android:background="@drawable/button_background"
                     android:textColor="#ffffff" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/saveData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:background="@drawable/button_background"
+                    android:textColor="#ffffff" />
+                <Button
+                    android:id="@+id/bmiHistorybtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="history"
+                    android:background="@drawable/button_background"
+                    android:textColor="#ffffff" />
             </LinearLayout>
 
             <TextView

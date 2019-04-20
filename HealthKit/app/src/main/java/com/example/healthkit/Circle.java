@@ -121,7 +121,6 @@ public class Circle extends AppCompatActivity implements OnMapReadyCallback, Ada
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if(snapshot.getKey().equalsIgnoreCase("needhelp")) {
                         needHelp = snapshot.getValue(String.class);
-
                         Log.d("emni",needHelp);
                     }
                     String t;

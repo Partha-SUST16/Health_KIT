@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MedicalLogin"></activity>
+        <activity android:name=".BmiHistory"></activity>
+        <activity android:name=".MedicalLogin" />
         <activity android:name=".Circle" />
         <activity android:name=".DoctorbyHospital" />
 
